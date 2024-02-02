@@ -1,9 +1,12 @@
 package kr.co.lion.mini_project20240201
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcel
+import android.os.Parcelable
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     // 화면 activity_register를 위한 런처
     lateinit var activityRegisterLauncher: ActivityResultLauncher<Intent>
 
+    // 동물정보 리스트 생성
     val animalList = mutableListOf<AnimalData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -122,6 +126,7 @@ class MainActivity : AppCompatActivity() {
     // RecyclerView의 어뎁터
     inner class RecyclerViewMainAdapter : RecyclerView.Adapter<RecyclerViewMainAdapter.ViewHolderMain>(){
         // ViewHolder
+        @SuppressLint("NotifyDataSetChanged")
         inner class ViewHolderMain (rowMainBinding: RowMainBinding) : RecyclerView.ViewHolder(rowMainBinding.root){
             val rowMainBinding:RowMainBinding
 
@@ -161,6 +166,30 @@ class MainActivity : AppCompatActivity() {
                     holder.rowMainBinding.imageViewRowMainType.setImageResource(R.drawable.giraffe)
                 }
             }
+        }
+    }
+}
+class AnimalData(var name: String?, var type: String?): Parcelable{
+    constructor(parcel: Parcel): this(
+        parcel.readString(),
+        parcel.readString()
+    ){
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(name)
+        parcel.writeString(type)
+    }
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<AnimalData> {
+        override fun createFromParcel(parcel: Parcel): AnimalData {
+            return AnimalData(parcel)
+        }
+        override fun newArray(size: Int): Array<AnimalData?> {
+            return arrayOfNulls(size)
         }
     }
 }
