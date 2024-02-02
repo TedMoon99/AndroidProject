@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         // 처음 시작시 "전체"가 선택되어 있는 상태로 시작한다.
 
     }
-    // 움하하 다시 github 테스트용 주석 4트
+    // 움하하 다시 github 테스트용 주석 5트
 
     // 기본 데이터 및 객체 셋팅
     fun initData(){
