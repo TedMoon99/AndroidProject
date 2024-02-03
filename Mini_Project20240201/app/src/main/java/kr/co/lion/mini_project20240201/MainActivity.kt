@@ -5,8 +5,6 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcel
-import android.os.Parcelable
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
@@ -40,16 +38,35 @@ class MainActivity : AppCompatActivity() {
     }
     // 이벤트 설정
     fun setEvent(){
-        // "등록" or FloatinActionButton을 누르면 activity_register화면이 나타난다.
+        activityMainBinding.apply {
+            // "등록" or FloatinActionButton을 누르면 activity_register화면이 나타난다.
+            fabMainAdd.setOnClickListener {
+                val intent = Intent(this@MainActivity, activity_register::class.java)
+                startActivity(intent)
+            }
+            // RecyclerView의 항목을 누르면 activity_report화면이 나타난다.
 
-        // RecyclerView의 항목을 누르면 activity_report화면이 나타난다.
 
-        // "필터" 메뉴를 누르면 다이얼로그를 띄운다.
-        // 다이얼로그에는 동물의 종류를 선택할 수 있도록 한다.
-        // "전체", "사자", "호랭이", "기린" 중 하나를 선택할 수 있도록 하며
-        // "전체" 를 선택하면 전체 동물들 목록이 나오고
-        // "사자", "호랑이", "기린" 중 하나를 선택하면 해당 동물들만 목록에 나오게 한다.
-        // 처음 시작시 "전체"가 선택되어 있는 상태로 시작한다.
+
+            // "필터" 메뉴를 누르면 다이얼로그를 띄운다.
+
+            // 메뉴의 리스너
+            toolbarMain.apply {
+                setOnMenuItemClickListener {
+                    when (it.itemId){
+                        // "필터" 메뉴를 누르면 다이얼로그를 띄운다.
+                        R.id.menuItemRegisterFilter -> {
+                            // 다이얼로그에는 동물의 종류를 선택할 수 있도록 한다.
+                            // "전체", "사자", "호랭이", "기린" 중 하나를 선택할 수 있도록 하며
+                            // "전체" 를 선택하면 전체 동물들 목록이 나오고
+                            // "사자", "호랑이", "기린" 중 하나를 선택하면 해당 동물들만 목록에 나오게 한다.
+                            // 처음 시작시 "전체"가 선택되어 있는 상태로 시작한다.
+                        }
+                    }
+                    true
+                }
+            }
+        }
 
     }
     // 움하하 다시 github 테스트용 주석 5트
@@ -90,15 +107,6 @@ class MainActivity : AppCompatActivity() {
                 // 메뉴
                 inflateMenu(R.menu.menu_main)
 
-                // 메뉴의 리스너
-                setOnMenuItemClickListener {
-                    when (it.itemId){
-                        R.id.menuItemRegisterFilter -> {
-
-                        }
-                    }
-                    true
-                }
             }
         }
 
@@ -133,11 +141,25 @@ class MainActivity : AppCompatActivity() {
 
             init {
                 this.rowMainBinding = rowMainBinding
-
+                // 항목 클릭시 전체가 클릭이 될 수 있도록
+                // 가로 세로의 길이를 설정해준다.
                 this.rowMainBinding.root.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
+                // 항목을 눌렀을 때의 리스너
+                this.rowMainBinding.root.setOnClickListener {
+                    // activity_Report를 실행한다.
+                    val reportIntent = Intent(this@MainActivity, activity_report::class.java)
+                    // 선택한 항목 번째의 동물 객체를 reportIntent에 담아준다.
+
+                    // 현재 아래 두 줄이 오류가 난다 왜지? startActivity만 사용하면 문제없이 작동함
+//                    reportIntent.putExtra("animalData",animalList[adapterPosition])
+//                    activityReportLauncher.launch(reportIntent)
+                    startActivity(reportIntent)
+                }
+
+
             }
         }
 
@@ -167,30 +189,6 @@ class MainActivity : AppCompatActivity() {
                     holder.rowMainBinding.imageViewRowMainType.setImageResource(R.drawable.giraffe)
                 }
             }
-        }
-    }
-}
-class AnimalData(var name: String?, var type: String?): Parcelable{
-    constructor(parcel: Parcel): this(
-        parcel.readString(),
-        parcel.readString()
-    ){
-    }
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(name)
-        parcel.writeString(type)
-    }
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<AnimalData> {
-        override fun createFromParcel(parcel: Parcel): AnimalData {
-            return AnimalData(parcel)
-        }
-        override fun newArray(size: Int): Array<AnimalData?> {
-            return arrayOfNulls(size)
         }
     }
 }
