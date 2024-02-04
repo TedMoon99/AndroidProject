@@ -1,6 +1,7 @@
 package kr.co.lion.mini_project20240201
 
 import android.annotation.SuppressLint
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.divider.MaterialDividerItemDecoration
+import com.google.android.material.textfield.TextInputEditText
 import kr.co.lion.mini_project20240201.databinding.ActivityMainBinding
 import kr.co.lion.mini_project20240201.databinding.RowMainBinding
 
@@ -32,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
-        setToolbar()
+        initData()
+        setEvent()
         setView()
 
     }
@@ -44,11 +48,10 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, activity_register::class.java)
                 startActivity(intent)
             }
-            // RecyclerView의 항목을 누르면 activity_report화면이 나타난다.
+            // TODO:   RecyclerView의 항목을 누르면 activity_report화면이 나타난다.
+            
 
 
-
-            // "필터" 메뉴를 누르면 다이얼로그를 띄운다.
 
             // 메뉴의 리스너
             toolbarMain.apply {
@@ -56,11 +59,8 @@ class MainActivity : AppCompatActivity() {
                     when (it.itemId){
                         // "필터" 메뉴를 누르면 다이얼로그를 띄운다.
                         R.id.menuItemRegisterFilter -> {
-                            // 다이얼로그에는 동물의 종류를 선택할 수 있도록 한다.
-                            // "전체", "사자", "호랭이", "기린" 중 하나를 선택할 수 있도록 하며
-                            // "전체" 를 선택하면 전체 동물들 목록이 나오고
-                            // "사자", "호랑이", "기린" 중 하나를 선택하면 해당 동물들만 목록에 나오게 한다.
-                            // 처음 시작시 "전체"가 선택되어 있는 상태로 시작한다.
+                            // TODO: "필터"메뉴를 누르면 다이얼로그를 띄운다.
+
                         }
                     }
                     true
@@ -97,26 +97,22 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    // 툴바 설정
-    fun setToolbar(){
-        activityMainBinding.apply {
-            toolbarMain.apply {
-                // 타이틀
-                title = "동물원 관리"
-                // 메뉴
-                inflateMenu(R.menu.menu_main)
-
-            }
-        }
-
-    }
-
     // View 설정
     fun setView(){
         activityMainBinding.apply {
 
             // RecyclerView의 항목에는 동물의 종류와 동물의 이름을 표시한다.
+
+            // 메뉴 설정
+            activityMainBinding.apply {
+                toolbarMain.apply {
+                    // 타이틀
+                    title = "동물원 관리"
+                    // 메뉴
+                    inflateMenu(R.menu.menu_main)
+
+                }
+            }
 
             // RecyclerView
             mainRecyclerView.apply {
@@ -129,6 +125,25 @@ class MainActivity : AppCompatActivity() {
                 addItemDecoration(deco)
             }
         }
+    }
+
+    // 다이얼로그를 보여주는 메서드
+    fun showDialog(title:String, message:String, focusView: TextInputEditText){
+        // 다이얼로그를 보여준다.
+        val builder = MaterialAlertDialogBuilder(this@MainActivity).apply {
+            // TODO:  // 다이얼로그에는 동물의 종류를 선택할 수 있도록 한다.
+            //                            // "전체", "사자", "호랭이", "기린" 중 하나를 선택할 수 있도록 하며
+            //                            // "전체" 를 선택하면 전체 동물들 목록이 나오고
+            //                            // "사자", "호랑이", "기린" 중 하나를 선택하면 해당 동물들만 목록에 나오게 한다.
+            //                            // 처음 시작시 "전체"가 선택되어 있는 상태로 시작한다.
+            setTitle(title)
+            setMessage(message)
+            setPositiveButton("전체"){ dialogInterface: DialogInterface, i : Int ->
+                focusView.setText("")
+                focusView.requestFocus()
+            }
+        }
+        builder.show()
     }
 
 
@@ -154,9 +169,11 @@ class MainActivity : AppCompatActivity() {
                     // 선택한 항목 번째의 동물 객체를 reportIntent에 담아준다.
 
                     // 현재 아래 두 줄이 오류가 난다 왜지? startActivity만 사용하면 문제없이 작동함
-//                    reportIntent.putExtra("animalData",animalList[adapterPosition])
-//                    activityReportLauncher.launch(reportIntent)
-                    startActivity(reportIntent)
+                    // starActivity와 activity Launcher가 문제가 아니고 putExtra가 문제였다.
+                    // startActivity는 결과값을 반환 받응ㄹ 필요가 없는 경우 사용하고 Activity Launcher는 결과값을 받아야 할 경우에 사용한다.
+
+                    reportIntent.putExtra("animalData",animalList[adapterPosition])
+                    activityReportLauncher.launch(reportIntent)
                 }
 
 
