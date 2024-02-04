@@ -4,9 +4,11 @@ import android.os.Parcel
 import android.os.Parcelable
 
 
-data class AnimalData(var name:String?, var type: String?): Parcelable {
+data class AnimalData(var name:String?, var age: String?, var detail1 : String?, var detail2 : String?): Parcelable {
     constructor(parcel: Parcel) : this(
         // 객체를 읽어온다.
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString(),
         parcel.readString()
     ) {
@@ -15,7 +17,9 @@ data class AnimalData(var name:String?, var type: String?): Parcelable {
     override fun writeToParcel(dest: Parcel, flags: Int) {
         // 객체에 작성한다.
         dest.writeString(name)
-        dest.writeString(type)
+        dest.writeString(age)
+        dest.writeString(detail1)
+        dest.writeString(detail2)
     }
 
     override fun describeContents(): Int {

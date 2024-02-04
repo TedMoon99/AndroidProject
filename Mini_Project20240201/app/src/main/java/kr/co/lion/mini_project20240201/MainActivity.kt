@@ -1,6 +1,5 @@
 package kr.co.lion.mini_project20240201
 
-import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
@@ -48,8 +47,6 @@ class MainActivity : AppCompatActivity() {
                 val intent = Intent(this@MainActivity, activity_register::class.java)
                 startActivity(intent)
             }
-            // TODO:   RecyclerView의 항목을 누르면 activity_report화면이 나타난다.
-            
 
 
 
@@ -150,7 +147,6 @@ class MainActivity : AppCompatActivity() {
     // RecyclerView의 어뎁터
     inner class RecyclerViewMainAdapter : RecyclerView.Adapter<RecyclerViewMainAdapter.ViewHolderMain>(){
         // ViewHolder
-        @SuppressLint("NotifyDataSetChanged")
         inner class ViewHolderMain (rowMainBinding: RowMainBinding) : RecyclerView.ViewHolder(rowMainBinding.root){
             val rowMainBinding:RowMainBinding
 
@@ -163,8 +159,9 @@ class MainActivity : AppCompatActivity() {
                     ViewGroup.LayoutParams.WRAP_CONTENT
                 )
                 // 항목을 눌렀을 때의 리스너
+                // TODO:   RecyclerView의 항목을 누르면 activity_report화면이 나타난다.
                 this.rowMainBinding.root.setOnClickListener {
-                    // activity_Report를 실행한다.
+                    // activity_report를 실행한다.
                     val reportIntent = Intent(this@MainActivity, activity_report::class.java)
                     // 선택한 항목 번째의 동물 객체를 reportIntent에 담아준다.
 
@@ -176,8 +173,6 @@ class MainActivity : AppCompatActivity() {
 //                    reportIntent.putExtra("animalData",animalList[adapterPosition])
                     activityReportLauncher.launch(reportIntent)
                 }
-
-
             }
         }
 
