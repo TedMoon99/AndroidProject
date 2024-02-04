@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                         // "필터" 메뉴를 누르면 다이얼로그를 띄운다.
                         R.id.menuItemRegisterFilter -> {
                             // TODO: "필터"메뉴를 누르면 다이얼로그를 띄운다.
-
+                            
                         }
                     }
                     true
@@ -172,7 +172,8 @@ class MainActivity : AppCompatActivity() {
                     // starActivity와 activity Launcher가 문제가 아니고 putExtra가 문제였다.
                     // startActivity는 결과값을 반환 받응ㄹ 필요가 없는 경우 사용하고 Activity Launcher는 결과값을 받아야 할 경우에 사용한다.
 
-                    reportIntent.putExtra("animalData",animalList[adapterPosition])
+                    // TODO: Intent에  
+//                    reportIntent.putExtra("animalData",animalList[adapterPosition])
                     activityReportLauncher.launch(reportIntent)
                 }
 
@@ -193,15 +194,15 @@ class MainActivity : AppCompatActivity() {
 
         override fun onBindViewHolder(holder: ViewHolderMain, position: Int) {
             when(position % 3){
-                0 -> {
+                2 -> {
                     holder.rowMainBinding.textViewRowMainName.text = "사자"
                     holder.rowMainBinding.imageViewRowMainType.setImageResource(R.drawable.lion)
                 }
-                1 -> {
+                0 -> {
                     holder.rowMainBinding.textViewRowMainName.text = "호랑이"
                     holder.rowMainBinding.imageViewRowMainType.setImageResource(R.drawable.tiger)
                 }
-                2 -> {
+                1 -> {
                     holder.rowMainBinding.textViewRowMainName.text = "기린"
                     holder.rowMainBinding.imageViewRowMainType.setImageResource(R.drawable.giraffe)
                 }

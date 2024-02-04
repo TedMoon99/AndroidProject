@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.ActivityResultLauncher
-import kr.co.lion.mini_project20240201.databinding.ActivityRegisterBinding
 import kr.co.lion.mini_project20240201.databinding.ActivityReportBinding
 
 class activity_report : AppCompatActivity() {
@@ -17,6 +16,11 @@ class activity_report : AppCompatActivity() {
 
         activityReportBinding = ActivityReportBinding.inflate(layoutInflater)
         setContentView(activityReportBinding.root)
+
+        setToolbar()
+        setView()
+        setEvent()
+
     }
 
     // 툴바 설정

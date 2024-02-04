@@ -3,7 +3,6 @@ package kr.co.lion.mini_project20240201
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import kr.co.lion.mini_project20240201.databinding.ActivityMainBinding
 import kr.co.lion.mini_project20240201.databinding.ActivityRegisterBinding
 
 class activity_register : AppCompatActivity() {
@@ -16,7 +15,9 @@ class activity_register : AppCompatActivity() {
         activityRegisterBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(activityRegisterBinding.root)
 
-
+        setToolbar()
+        setView()
+        setEvent()
     }
 
     // 툴바 설정
@@ -66,14 +67,14 @@ class activity_register : AppCompatActivity() {
                 detailInput2.visibility = View.VISIBLE
 
                 // 세부사항을 사자에 맞게 설정
-                detailInputLayout1.hint = "쥴무늬 개수"
+                detailInputLayout1.hint = "줄무늬 개수"
                 detailInput1.inputType = android.text.InputType.TYPE_CLASS_NUMBER
 
                 detailInputLayout2.hint = "몸무게(50kg ~ 200kg)"
                 detailInput2.inputType = android.text.InputType.TYPE_CLASS_NUMBER
             }
             // 기린 버튼
-            imagebuttonLion.setOnClickListener{
+            imageButtonGiraffe.setOnClickListener{
                 // 화면에 등장하게 설정
                 nameInput.visibility = View.VISIBLE
                 ageInput.visibility = View.VISIBLE
@@ -88,16 +89,14 @@ class activity_register : AppCompatActivity() {
                 detailInput2.inputType = android.text.InputType.TYPE_CLASS_TEXT
             }
         }
+    }
+    // 이벤트 설정
+    fun setEvent(){
+        activityRegisterBinding.apply {
+            toolbarRegister.setOnMenuItemClickListener {
+                // 완료 버튼을 누르면 화면 1로 이동하고 화면 1의 RecyclerView의 목록에 나오도록 한다.
 
-        // 이벤트 설정
-        fun setEvent(){
-            activityRegisterBinding.apply {
-                toolbarRegister.setOnMenuItemClickListener {
-                    // 완료 버튼을 누르면 화면 1로 이동하고 화면 1의 RecyclerView의 목록에 나오도록 한다.
-
-
-                    true
-                }
+                true
             }
         }
     }

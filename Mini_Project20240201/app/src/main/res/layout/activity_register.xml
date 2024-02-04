@@ -25,21 +25,21 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/lion" />
+            android:src="@drawable/tiger" />
 
         <ImageButton
             android:id="@+id/imageButtonTiger"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/tiger" />
+            android:src="@drawable/giraffe" />
 
         <ImageButton
-            android:id="@+id/imageButtpnGiraffe"
+            android:id="@+id/imageButtonGiraffe"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/giraffe" />
+            android:src="@drawable/lion" />
 
     </LinearLayout>
 

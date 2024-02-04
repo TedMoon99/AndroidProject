@@ -14,7 +14,9 @@ class activity_edit : AppCompatActivity() {
         activityEditBinding = ActivityEditBinding.inflate(layoutInflater)
         setContentView(activityEditBinding.root)
 
-
+        setToolbar()
+        setView()
+        setEvent()
     }
 
     // 툴바 설정
