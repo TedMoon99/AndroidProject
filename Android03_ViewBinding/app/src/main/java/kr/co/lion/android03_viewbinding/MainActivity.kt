@@ -10,7 +10,7 @@ import kr.co.lion.android03_viewbinding.databinding.ActivityMainBinding
 
 // ViewBinding
 // 코드를 통해 배치된 View들을 사용하기 위해서는 View 객체의 주소값을 가져와야 한다.
-// findViewById 메서드를 이용해 원하는 View 객체의 주소값을 가져올 수 있다.
+// findViewById 메서드를 이용해 원하는 View 객체의 주소값을 가져올 수 있다. => 요즘 fintViewById는 안 쓴다
 // 만약 ViewBinding를 설정하면 id가 설정되어 있는 View 객체의 주소값이
 // 미리 프로퍼티에 담겨져 있기 때문에 이것을 사용만 하면 된다.
 
@@ -50,9 +50,12 @@ class MainActivity : AppCompatActivity() {
         // layoutInflater : xml 파일을 통해서 View 객체를 생성할 수 있는 도구
         // xml 파일에 배치한 모든 View 들의 객체를 생성하고 객체의 주소값을 담을 프로퍼티를
         // 만들어 객체의 주소값을 담아준다. 이러한 프로퍼티를 ViewBiding 객체가 가지고 있다.
+        
         val activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
-        // Viewbinding이 관리하는 View 들 중 최 상위 View를 설정하여 화면에 보여준다
+        
+        // Viewbinding이 관리하는 View들 중 최상위 View를 설정하여 화면에 보여준다
         // ViewBinding이 가지고 있는 root 프로퍼티는 가장 최상위에는 View를 지칭한다.
+        
         // 지칭한 View를 화면에 보여준다.
         setContentView(activityMainBinding.root)
 
