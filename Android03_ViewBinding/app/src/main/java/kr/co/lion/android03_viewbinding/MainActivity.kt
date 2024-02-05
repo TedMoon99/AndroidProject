@@ -65,6 +65,12 @@ class MainActivity : AppCompatActivity() {
                 activityMainBinding.textView.text = "버튼을 눌렀습니다."
             }
         })
+
+//        activityMainBinding.apply {
+//            button.setOnClickListener {
+//                activityMainBinding.textView.text = "버튼을 눌렀습니다."
+//            }
+//        }
     }
 }
 

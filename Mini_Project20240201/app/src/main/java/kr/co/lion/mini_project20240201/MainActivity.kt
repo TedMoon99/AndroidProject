@@ -15,6 +15,7 @@ import com.google.android.material.divider.MaterialDividerItemDecoration
 import com.google.android.material.textfield.TextInputEditText
 import kr.co.lion.mini_project20240201.databinding.ActivityMainBinding
 import kr.co.lion.mini_project20240201.databinding.RowMainBinding
+import java.util.Objects
 
 class MainActivity : AppCompatActivity() {
 
