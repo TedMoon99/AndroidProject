@@ -14,7 +14,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+//        layoutInflater : xml 파일을 통해서 View 객체를 생성할 수 있는 도구
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
+
+
+        // #### Viewbinding이 관리하는 View들 중 최상위 View를 설정하여 화면에 보여준다 ####
+
+        // ViewBinding이 가지고 있는 root 프로퍼티는 가장 최상위에 있는 View를 지칭한다.
+        // setContentView : 지칭한 View를 화면에 보여준다.
         setContentView(activityMainBinding.root)
         
         activityMainBinding.apply { 
@@ -46,6 +53,7 @@ class MainActivity : AppCompatActivity() {
                 setOnClickListener {
                     // EditText에서 문자열을 가져온다.
                     // Editable 타입으로 반환되므로 String 형태로 사용하고자 한다면 변환해줘야 한다.
+                    // editTextText.text ==> Editable 타입
                     val str1 = editTextText.text.toString()
                     textView.text = str1
                 }

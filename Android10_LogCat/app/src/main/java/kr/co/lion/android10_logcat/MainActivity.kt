@@ -26,7 +26,6 @@ class MainActivity : AppCompatActivity() {
         // e : error, 오류에 관련된 메시지를 출력하는데 사용한다.
         // 애플리케이션에서 오류가 발생하면 오류 메시지는 그냥 출력된다.
         Log.e("test1234", "error")
-        // 10 / 0
         // i : information, 정보성 메시지를 출력하는데 사용한다.
         Log.i("test1234", "information")
         // v : verbose, 상세한 설명 메시지를 출력하는데 사용한다.
