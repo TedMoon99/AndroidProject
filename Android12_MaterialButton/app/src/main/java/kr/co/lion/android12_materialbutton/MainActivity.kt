@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             // SingleSelection
-            toggleGroup2.addOnButtonCheckedListener { group, checkedId, isChecked ->
+            toggleGroup2.addOnButtonCheckedListener {  group, checkedId, isChecked ->
                 // 버튼의 id로 분기한다.
                 when(checkedId){
                     R.id.toggleButton4 -> {

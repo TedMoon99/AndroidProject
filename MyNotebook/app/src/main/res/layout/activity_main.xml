@@ -4,26 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTintMode="src_in"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="308dp"
-        android:backgroundTint="#AC1616"
+        android:layout_height="242dp"
+        android:backgroundTint="#F44336"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:expanded="false">
 
+<!--        앱바 안에 있는 Toolbar-->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarTest"
             android:layout_width="match_parent"
-            android:layout_height="313dp" />
+            android:layout_height="wrap_content"
+            android:background="#673AB7" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/funny_face"/>
+
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
 
 </LinearLayout>

@@ -158,11 +158,11 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/textViewInputWeight"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="몸무게"
+                        android:text="몸무게 : 50"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
                     <com.google.android.material.slider.Slider
@@ -170,6 +170,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
+                        android:stepSize="1.0"
                         android:valueFrom="50"
                         android:valueTo="200" />
                 </LinearLayout>
