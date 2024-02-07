@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/matcha"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <Switch
+            android:id="@+id/switchTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Switch" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="30dp"
+            android:padding="15dp"
+            android:visibility="visible">
+            <!--1주차-->
+            <TableRow
+                android:id="@+id/week1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/day1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/matcha_dark"
+                    android:elevation="15dp" />
+
+                <Button
+                    android:id="@+id/day2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day5"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day6"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day7"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+            </TableRow>
+            <!--        2주차 -->
+            <TableRow
+                android:id="@+id/week2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/day8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@drawable/arrow_back_24px" />
+
+                <Button
+                    android:id="@+id/day9"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day10"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day11"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day13"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day14"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/week3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/day15"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@drawable/arrow_back_24px" />
+
+                <Button
+                    android:id="@+id/day16"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day17"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day18"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day19"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day20"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day21"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/week4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/day22"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@drawable/arrow_back_24px" />
+
+                <Button
+                    android:id="@+id/day23"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day24"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day27"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+
+                <Button
+                    android:id="@+id/day28"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:elevation="15dp"
+                    android:src="@android:drawable/btn_star" />
+            </TableRow>
+
+            <TableRow>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/day29"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/day30"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <Button
+                        android:id="@+id/day31"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:orientation="horizontal"></LinearLayout>
+
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</LinearLayout>

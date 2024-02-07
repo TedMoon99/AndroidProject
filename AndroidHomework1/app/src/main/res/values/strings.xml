@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Android Homework1</string>
+    <string name="menu_main">메모 관리</string>
+    <string name="memo_write">메모 작성</string>
+    <string name="memo_show">메모 보기</string>
+    <string name="memo_edit">메모 수정</string>
+    <string name="title">제목</string>
+    <string name="content">내용</string>
+    <string name="edit">수정</string>
+    <string name="delete">삭제</string>
+    <string name="work_day">작업 날짜</string>
+</resources>

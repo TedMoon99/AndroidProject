@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="matcha">#94a540</color>
+    <color name="matcha_dark">#7a8444</color>
+    <color name="brown">#6F4F28</color>
+</resources>
