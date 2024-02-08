@@ -13,6 +13,9 @@ class MainActivity : AppCompatActivity() {
         activityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(activityMainBinding.root)
 
+        val a1 = 10
+        val a2 = 20
+
 
     }
 
