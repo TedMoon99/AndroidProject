@@ -13,6 +13,9 @@
         android:theme="@style/Theme.AndroidHomework"
         tools:targetApi="31">
         <activity
+            android:name=".activityInput"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

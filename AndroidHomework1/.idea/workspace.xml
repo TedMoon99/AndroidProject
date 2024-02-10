@@ -31,7 +31,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fdb16f6-c955-4bdd-aa7e-0ca789895d89" name="Changes" comment="2024.02.08" />
+    <list default="true" id="3fdb16f6-c955-4bdd-aa7e-0ca789895d89" name="Changes" comment="2024.02.08">
+      <change afterPath="$PROJECT_DIR$/../Android32_Service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AndroidHomework/app/src/main/res/layout/row_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Android27_Toolbar/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Android27_Toolbar/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AndroidHomework/app/src/main/java/kr/co/lion/androidhomework/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/../AndroidHomework/app/src/main/java/kr/co/lion/androidhomework/MainActivity.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,21 +75,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "android-custom-view/Users/tedmoon/Library/Android/sdk/sources/android-34/android/widget/Button.java_SELECTED": "Button",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "last_directory_selection": "/Users/tedmoon/androidProject/AndroidHomework1/app/src/main/res/values",
-    "last_opened_file_path": "/Users/tedmoon/androidProject/AndroidHomework1/app/src/main/res/values",
-    "settings.editor.selected.configurable": "AtomSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;android-custom-view/Users/tedmoon/Library/Android/sdk/sources/android-34/android/widget/Button.java_SELECTED&quot;: &quot;Button&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/tedmoon/androidProject/AndroidHomework1/app/src/main/res/values&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/tedmoon/androidProject/AndroidHomework1/app/src/main/res/values&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AtomSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/values" />

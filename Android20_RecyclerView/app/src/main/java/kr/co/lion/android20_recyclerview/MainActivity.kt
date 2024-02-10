@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
             recyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
 
             // RecyclerView Decoration
-            // 각 항목을 구분하기 위한 구분선
+            // 각 항목을 구분하기 위한 구분선 => 필요에 따라 사용
             val deco = MaterialDividerItemDecoration(this@MainActivity, MaterialDividerItemDecoration.VERTICAL)
             // 구분선 좌측 여백
             // deco.dividerInsetStart = 50
