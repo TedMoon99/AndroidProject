@@ -155,7 +155,6 @@ class MainActivity : AppCompatActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMain {
             val rowMainBinding = RowMainBinding.inflate(layoutInflater)
             val viewHolderMain = ViewHolderMain(rowMainBinding)
-
             return viewHolderMain
         }
 

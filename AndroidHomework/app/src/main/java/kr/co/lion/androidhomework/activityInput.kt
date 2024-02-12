@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kr.co.lion.androidhomework.databinding.ActivityInputBinding
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class activityInput : AppCompatActivity() {
 
@@ -56,17 +58,15 @@ class activityInput : AppCompatActivity() {
                             // 작성된 내용을 받아오기
                             val inputTitleDone = textFieldTitle.text.toString()
                             val inputContentDone = textFieldContent.text.toString()
+                            val temp = Date(System.currentTimeMillis())
+                            val formattedDate = SimpleDateFormat("yyyy-MM-dd")
+                            val date = formattedDate.format(temp)
 
+                            val memoData = MemoData(inputTitleDone, inputContentDone, date)
                             // 받아온 내용 intent에 넣어주기
-                            intentInputDone.putExtra("inputTitleDone", inputTitleDone)
-                            intentInputDone.putExtra("inputConentDone", inputContentDone)
-
+                            intentInputDone.putExtra("intentInputDone", memoData)
                             // 작업의 결과를 MainActivity로 전달해주기
                             setResult(RESULT_OK, intentInputDone)
-
-                            // activity실행
-                            startActivity(intentInputDone)
-
                             // 파괴
                             finish()
                         }
