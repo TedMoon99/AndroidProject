@@ -102,10 +102,13 @@ class MainActivity : AppCompatActivity() {
 
                 // 현재 항목을 누르면 반응하는 리스너
                 // adapterPosition 프로퍼티 : 항목의 순서값
+
                 // 사용자가 터치한 항목이 몇 번째 항목인가로 사용한다.
                 this.rowBinding.root.setOnClickListener {
                     activityMainBinding.textView.text = "선택한 항목 : ${textData1[adapterPosition]}"
                 }
+
+
                 // View의 가로길이는 최대크기로 맞춰준다.
                 this.rowBinding.root.layoutParams = ViewGroup.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT,    // 가로 길이
@@ -119,8 +122,10 @@ class MainActivity : AppCompatActivity() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderClass {
             // View Binding
             val rowBinding = RowBinding.inflate(layoutInflater)
+
             // View Holder
             val viewHolderClass = ViewHolderClass(rowBinding)
+
             // 반환한다.
             return viewHolderClass
         }
@@ -128,6 +133,8 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount(): Int {
             return imageRes.size
         }
+
+
         // 항목의 View에 보여주고자 하는 데이터를 설정한다.
         // 첫 번째 매개변수 : ViewHolder 객체. 재사용 가능한 것이 없다면 onCreateViewHolder 메서드를
         // 호출하고 반환하는 ViewHolder 객체가 들어오고 재사용 가능한 것이 있다면 재사용 가능한 ViewHolder 객체가

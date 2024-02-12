@@ -1,5 +1,6 @@
 package kr.co.lion.androidhomework
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kr.co.lion.androidhomework.databinding.ActivityInputBinding
@@ -49,11 +50,24 @@ class activityInput : AppCompatActivity() {
                 setOnMenuItemClickListener {
                     when (it.itemId){
                         R.id.menuItemDone -> {
-                            setResult(RESULT_OK)
-                            // TODO: 작성된 내용을 recyclerView에 전달하기
-                            val title = textFieldTitle.text.toString()
-                            val content = textFieldContent.text.toString()
+                            // intent 객체 생성
+                            val intentInputDone = Intent(this@activityInput, MainActivity::class.java)
 
+                            // 작성된 내용을 받아오기
+                            val inputTitleDone = textFieldTitle.text.toString()
+                            val inputContentDone = textFieldContent.text.toString()
+
+                            // 받아온 내용 intent에 넣어주기
+                            intentInputDone.putExtra("inputTitleDone", inputTitleDone)
+                            intentInputDone.putExtra("inputConentDone", inputContentDone)
+
+                            // 작업의 결과를 MainActivity로 전달해주기
+                            setResult(RESULT_OK, intentInputDone)
+
+                            // activity실행
+                            startActivity(intentInputDone)
+
+                            // 파괴
                             finish()
                         }
                     }
