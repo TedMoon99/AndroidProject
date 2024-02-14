@@ -38,6 +38,17 @@ class MainFragment : Fragment() {
                 title = "학생 관리"
                 // menu
                 inflateMenu(R.menu.main_menu)
+                setOnMenuItemClickListener {
+
+                    when(it.itemId){
+                        R.id.menuItemMainAdd -> {
+                            // InputFragment가 보이게 한다.
+                            mainActivity.replaceFragment(FragmentName.INPUT_FRAGMENT, true, true, null)
+                        }
+                    }
+
+                    true
+                }
             }
         }
     }
@@ -81,11 +92,22 @@ class MainFragment : Fragment() {
         }
 
         override fun getItemCount(): Int {
-            return 100
+            return mainActivity.studentInfoList.size
         }
 
         override fun onBindViewHolder(holder: ViewHolderMain, position: Int) {
-            holder.mainRowBinding.textViewMainRowName.text = "홍길동 $position"
+            // position 번째 학생 객체를 추출한다.
+            val studentInfo = mainActivity.studentInfoList[position]
+
+            holder.mainRowBinding.textViewMainRowName.text = studentInfo.name
+
+            holder.mainRowBinding.root.setOnClickListener {
+                // 항목을 누르면 ShowFragment로 이동되게 한다.
+                val showBundle = Bundle()
+                showBundle.putInt("position", position)
+
+                mainActivity.replaceFragment(FragmentName.SHOW_FRAGMENT, true, true, showBundle)
+            }
         }
     }
 }

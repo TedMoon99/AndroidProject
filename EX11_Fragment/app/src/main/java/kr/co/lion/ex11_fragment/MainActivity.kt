@@ -20,23 +20,15 @@ import kr.co.lion.ex11_fragment.databinding.ActivityMainBinding
 // 2. FragmentName enum 클래스에 Fragment 이름을 추가해준다.
 // 3. replaceFragment  메서드 내의 when에 Fragment 관련 코드를 작성해준다.
 
-
-/*
-MainFragment 의 상단 + 메뉴를 누르면 입력 화면이 나타난다
-
-입력은 이름, 나이, 국어점수, 영어점수, 수학점수를 입력받는다.
-
-입력 후  MainFragment로 돌아오면 RecyclerView의 항목으로 보여진다.
-
-MainFragment의 RecyclerView의 항목을 누르면 해당 학생의 정보를 보여주는 화면이 나타난다.
-*/
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var activityMainBinding: ActivityMainBinding
 
     var oldFragment:Fragment? = null
     var newFragment:Fragment? = null
+
+    // 학생들의 정보를 담을 리스트
+    val studentInfoList = mutableListOf<StudentInfo>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,8 +64,13 @@ class MainActivity : AppCompatActivity() {
             FragmentName.MAIN_FRAGMENT -> {
                 newFragment = MainFragment()
             }
-            FragmentName.B_FRAGMENT -> {
-
+            // 입력 화면
+            FragmentName.INPUT_FRAGMENT -> {
+                newFragment = InputFragment()
+            }
+            // 정보 보기 화면
+            FragmentName.SHOW_FRAGMENT -> {
+                newFragment = ShowFragment()
             }
         }
 
@@ -147,8 +144,12 @@ class MainActivity : AppCompatActivity() {
 
 enum class FragmentName(var str:String){
     MAIN_FRAGMENT("MainFragment"),
-    B_FRAGMENT("B")
+    INPUT_FRAGMENT("InputFragment"),
+    SHOW_FRAGMENT("ShowFragment"),
 }
+
+// 학생 정보를 담을 클래스
+data class StudentInfo(var name:String, var age:Int, var kor:Int)
 
 
 
