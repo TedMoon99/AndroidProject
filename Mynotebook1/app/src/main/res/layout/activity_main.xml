@@ -21,15 +21,17 @@
         android:orientation="vertical">
 
         <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarMain"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3"
-            android:padding="15dp">
+            android:padding="15dp"
+            android:visibility="visible">
 
             <CalendarView
                 android:id="@+id/calandarViewMain"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center" />
         </com.google.android.material.appbar.AppBarLayout>
 

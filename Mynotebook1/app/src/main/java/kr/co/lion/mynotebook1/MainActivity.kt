@@ -2,8 +2,10 @@ package kr.co.lion.mynotebook1
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.renderscript.ScriptGroup.Input
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
@@ -43,8 +45,25 @@ class MainActivity : AppCompatActivity() {
         activityInputLauncher = registerForActivityResult(contractInput){
             // 돌아온 뒤에 실행할 내용
             // InputActivity에서 작성한 내용을 받아와서 RecyclerView 항목에 넣어줘여 함
+            if (it != null){
+                when (it.resultCode){
+                    RESULT_OK -> {
+                        if (it.data != null){
+                            // 객체를 추출한다.
+                            if (Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU){
+                                val memoObject = it.data?.getParcelableExtra("Inputdone", MemoData::class.java)
+                                memoData.add(memoObject!!)
+                                activityMainBinding.recyclerViewMain.adapter?.notifyDataSetChanged()
+                            } else {
+                                val memoObject = it.data?.getParcelableExtra<MemoData>("InputDone")
+                                memoData.add(memoObject!!)
+                                activityMainBinding.recyclerViewMain.adapter?.notifyDataSetChanged()
+                            }
+                        }
+                    }
+                }
+            }
         }
-
 
         // MainActivity -> ShowActivity
         val contractShow = ActivityResultContracts.StartActivityForResult()
@@ -57,21 +76,26 @@ class MainActivity : AppCompatActivity() {
     // View 설정
     fun setView(){
         activityMainBinding.apply {
+            // 툴바 View 설정
             toolbarMain.apply {
                 // 타이틀
                 title = "Memo"
                 // 메뉴
                 inflateMenu(R.menu.main_menu)
+                // Navigation Icon
+                setNavigationIcon(R.drawable.calendar_month_24px)
             }
-
-            // RecyclerView 항목들 구분선 생성
+            // RecyclerView 설정
             recyclerViewMain.apply {
+                val recyclerViewAdapter = RecyclerViewAdapter()
+                this.adapter = recyclerViewAdapter
+                this.layoutManager = LinearLayoutManager(this@MainActivity)
+
+                // RecyclerView 항목들 구분선 생성
                 val deco = MaterialDividerItemDecoration(context!!, LinearLayoutManager.VERTICAL)
                 this.addItemDecoration(deco)
             }
         }
-
-
     }
 
     // 이벤트 처리
@@ -83,21 +107,23 @@ class MainActivity : AppCompatActivity() {
                     when (it.itemId){
                         R.id.menuItemAddMain -> {
                             // InputyActivity로 이동
+                            val intentInput = Intent(this@MainActivity, InputActivity::class.java)
+                            // 넣어줄 것이 있는가? => 없다
+                            activityInputLauncher.launch(intentInput)
                         }
                     }
                     true
+                }
+                setNavigationOnClickListener {
+                    var switch = 1
+                    appbarMain.apply {
+                        
+                    }
                 }
             }
 
             calandarViewMain.apply {
                 // TODO("달력 항목 클릭시 RecyclerView에 보이는 항목들 필터링")
-            }
-
-            recyclerViewMain.apply {
-                // 항목 클릭시 ShowActicity로 이동
-                this.setOnClickListener {
-
-                }
             }
         }
 
@@ -127,7 +153,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         override fun getItemCount(): Int {
-            return 0
+            return memoData.size
         }
 
         @SuppressLint("SetTextI18n")
@@ -135,6 +161,9 @@ class MainActivity : AppCompatActivity() {
             holder.rowMainBinding.textViewTitle.text = "제목 : ${memoData[position].title}"
             holder.rowMainBinding.textViewContent.text = "내용 : ${memoData[position].content}"
             holder.rowMainBinding.textViewDate.text = "작성 날짜 : ${memoData[position].date}"
+
+            // 항목 클릭시 EditActivity로 이동
+
         }
 
     }
